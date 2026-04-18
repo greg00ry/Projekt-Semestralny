@@ -1,7 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import sequelize from '../database';
 
-interface RoomAttributes {
+export interface RoomAttributes {
   id: number;
   number: string;
   createdAt?: Date;

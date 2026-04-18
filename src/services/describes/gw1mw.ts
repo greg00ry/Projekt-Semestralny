@@ -1,0 +1,3 @@
+export const gw1mw = `Wydany w 1999 roku film "Gwiezdne wojny: Część I – Mroczne widmo" to początek sagi o Anakinie Skywalkerze.
+Fabuła skupia się na misji dwóch rycerzy Jedi – Qui-Gon Jinna i jego ucznia Obi-Wana Kenobiego – którzy próbują zażegnać konflikt handlowy zagrażający planecie Naboo. Podczas ucieczki trafiają na piaszczystą Tatooine, gdzie odkrywają młodego niewolnika, Anakina, wykazującego niezwykle silną więź z Mocą. Film ukazuje powrót mrocznych Sithów, spektakularne wyścigi podracerów oraz polityczne intrygi, które na zawsze zmienią losy galaktyki.
+`
