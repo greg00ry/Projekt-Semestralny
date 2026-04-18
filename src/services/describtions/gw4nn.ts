@@ -1,0 +1,1 @@
+export const gw4nn = ` Młody farmer Luke Skywalker, po wejściu w posiadanie droidów z planami Gwiazdy Śmierci, dołącza do rycerza Jedi Obi-Wana Kenobiego oraz szmuglera Hana Solo. Razem wyruszają na misję ratowania księżniczki Lei i zniszczenia potężnej broni Imperium.`

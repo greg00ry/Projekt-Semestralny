@@ -1,0 +1,1 @@
+export const gw5ik = `Po bitwie o planetę Hoth siły Rebelii zostają rozproszone. Luke Skywalker udaje się na bagnistą planetę Dagobah, aby pod okiem mistrza Yody szkolić się na rycerza Jedi, podczas gdy Han Solo i Leia są ścigani przez Dartha Vadera w całej galaktyce.`

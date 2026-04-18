@@ -1,0 +1,1 @@
+export const gw6pj = `Rebelianci planują ostateczny atak na drugą, jeszcze potężniejszą Gwiazdę Śmierci. W międzyczasie Luke Skywalker musi stawić czoła Jabbie Huttowi, aby uwolnić Hana Solo, oraz zmierzyć się w finalnym pojedynku z własnym ojcem, Darthem Vaderem, i samym Imperatorem. `
