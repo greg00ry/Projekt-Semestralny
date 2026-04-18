@@ -2,33 +2,33 @@ import { Request, Response } from 'express';
 import Room from '../models/Room';
 
 export const getRooms = async (req: Request, res: Response): Promise<void> => {
-  const users = await Room.findAll();
-  res.json(users);
+  const rooms = await Room.findAll();
+  res.json(rooms);
 };
 
 export const getRoomById = async (req: Request, res: Response): Promise<void> => {
-  const user = await Room.findByPk(Number(req.params.id));
-  if (!user) {
-    res.status(404).json({ message: 'User not found' });
+  const room = await Room.findByPk(Number(req.params.id));
+  if (!room) {
+    res.status(404).json({ message: 'Room not found' });
     return;
   }
-  res.json(user);
+  res.json(room);
 };
 
 export const createRoom = async (req: Request, res: Response): Promise<void> => {
   const { number } = req.body;
-  const user = await Room.create({ number });
-  res.status(201).json(user);
+  const room = await Room.create({ number });
+  res.status(201).json(room);
 };
 
 
 
 export const deleteRoom = async (req: Request, res: Response): Promise<void> => {
-  const user = await Room.findByPk(Number(req.params.id));
-  if (!user) {
-    res.status(404).json({ message: 'User not found' });
+  const room = await Room.findByPk(Number(req.params.id));
+  if (!room) {
+    res.status(404).json({ message: 'Room not found' });
     return;
   }
-  await user.destroy();
+  await room.destroy();
   res.status(204).send();
 };

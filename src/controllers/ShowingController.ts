@@ -2,33 +2,33 @@ import { Request, Response } from 'express';
 import Showing from '../models/Showing';
 
 export const getShowings = async (req: Request, res: Response): Promise<void> => {
-  const users = await Showing.findAll();
-  res.json(users);
+  const showings = await Showing.findAll();
+  res.json(showings);
 };
 
 export const getShowingById = async (req: Request, res: Response): Promise<void> => {
-  const user = await Showing.findByPk(Number(req.params.id));
-  if (!user) {
-    res.status(404).json({ message: 'User not found' });
+  const showings = await Showing.findByPk(Number(req.params.id));
+  if (!showings) {
+    res.status(404).json({ message: 'Seat not found' });
     return;
   }
-  res.json(user);
+  res.json(showings);
 };
 
 export const createShowing = async (req: Request, res: Response): Promise<void> => {
   const { movieId, roomId, date, price } = req.body;
-  const user = await Showing.create({ date, price, movieId, roomId });
-  res.status(201).json(user);
+  const showings = await Showing.create({ date, price, movieId, roomId });
+  res.status(201).json(showings);
 };
 
 
 
-export const showingUser = async (req: Request, res: Response): Promise<void> => {
-  const user = await Showing.findByPk(Number(req.params.id));
-  if (!user) {
-    res.status(404).json({ message: 'User not found' });
+export const deleteShowing = async (req: Request, res: Response): Promise<void> => {
+  const showings = await Showing.findByPk(Number(req.params.id));
+  if (!showings) {
+    res.status(404).json({ message: 'Seat not found' });
     return;
   }
-  await user.destroy();
+  await showings.destroy();
   res.status(204).send();
 };
