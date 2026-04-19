@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Room from '../models/Room';
+import { Room } from '../models/index';
 
 export const getRooms = async (req: Request, res: Response): Promise<void> => {
   const rooms = await Room.findAll();

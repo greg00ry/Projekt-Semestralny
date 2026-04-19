@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Reservation from '../models/Reservation';
+import { Reservation } from '../models/index';
 
 export const getReservations = async (req: Request, res: Response): Promise<void> => {
   const reservations = await Reservation.findAll();

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import User from '../models/User';
+import { User } from '../models/index';
 
 export const getUsers = async (req: Request, res: Response): Promise<void> => {
   const users = await User.findAll();
@@ -16,8 +16,8 @@ export const getUserById = async (req: Request, res: Response): Promise<void> =>
 };
 
 export const createUser = async (req: Request, res: Response): Promise<void> => {
-  const { name } = req.body;
-  const user = await User.create({ name });
+  const { name, email } = req.body;
+  const user = await User.create({ name, email });
   res.status(201).json(user);
 };
 

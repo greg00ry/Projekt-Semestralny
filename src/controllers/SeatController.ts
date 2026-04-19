@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Seat from '../models/Seat';
+import { Seat } from '../models/index';
 
 export const getSeats = async (req: Request, res: Response): Promise<void> => {
   const users = await Seat.findAll();

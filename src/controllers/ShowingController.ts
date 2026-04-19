@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import Showing from '../models/Showing';
+import { Showing } from '../models/index';
 
 export const getShowings = async (req: Request, res: Response): Promise<void> => {
   const showings = await Showing.findAll();
