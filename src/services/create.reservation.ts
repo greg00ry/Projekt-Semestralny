@@ -6,7 +6,14 @@ const createReservation = async (showingId: number, userId: number, seatIds: num
 
   try {
 
-    // twoja logika tutaj
+    for (const seatId of seatIds) {
+        const taken = await Reservation.findOne({ where: { showingId, seatId }, transaction: t });
+        if (taken) throw new Error(`Seat ${seatId} is already taken`);
+        await Reservation.create({ showingId, userId, seatId }, { transaction: t });
+    }
+
+
+
 
     await t.commit();
   } catch (error) {

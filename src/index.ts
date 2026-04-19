@@ -1,10 +1,13 @@
 import sequelize from './database';
-import './models/index';
 import ingestDataBase from './services/ingest.database';
+import app from './app';
+
+const PORT = 3000;
 
 (async () => {
   await sequelize.sync({ force: true });
   await ingestDataBase();
-  console.log('Ingest zakończony');
-  process.exit(0);
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
 })();

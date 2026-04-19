@@ -3,7 +3,6 @@ import sequelize from '../database';
 
 interface ReservationAttributes {
   id: number;
-  number: string;
   showingId: number;
   userId: number;
   seatId: number;
@@ -15,7 +14,6 @@ interface ReservationCreationAttributes extends Optional<ReservationAttributes, 
 
 class Reservation extends Model<ReservationAttributes, ReservationCreationAttributes> implements ReservationAttributes {
   public id!: number;
-  public number!: string;
   public showingId!: number;
   public userId!: number;
   public seatId!: number;
@@ -26,7 +24,6 @@ class Reservation extends Model<ReservationAttributes, ReservationCreationAttrib
 Reservation.init(
   {
     id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
-    number: { type: DataTypes.STRING, allowNull: false },
     showingId: { type: DataTypes.INTEGER, allowNull: false },
     userId: { type: DataTypes.INTEGER, allowNull: false },
     seatId: { type: DataTypes.INTEGER, allowNull: false },

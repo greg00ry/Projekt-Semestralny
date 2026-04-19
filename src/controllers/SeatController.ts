@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { Seat } from '../models/index';
+import getTakenSeats from '../services/get.taken.seats';
 
 export const getSeats = async (req: Request, res: Response): Promise<void> => {
   const users = await Seat.findAll();
@@ -22,6 +23,11 @@ export const createSeat = async (req: Request, res: Response): Promise<void> => 
 };
 
 
+
+export const getTakenSeatsByShowing = async (req: Request, res: Response): Promise<void> => {
+  const takenSeats = await getTakenSeats(Number(req.params.showingId));
+  res.json(takenSeats);
+};
 
 export const deleteSeat = async (req: Request, res: Response): Promise<void> => {
   const user = await Seat.findByPk(Number(req.params.id));

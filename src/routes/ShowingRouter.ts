@@ -8,4 +8,6 @@ router.get('/:id', getShowingById);
 router.post('/', createShowing);
 router.delete('/:id', deleteShowing);
 
+
+
 export default router;

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { Reservation } from '../models/index';
+import createReservation from '../services/create.reservation'
 
 export const getReservations = async (req: Request, res: Response): Promise<void> => {
   const reservations = await Reservation.findAll();
@@ -16,9 +17,13 @@ export const getReservationById = async (req: Request, res: Response): Promise<v
 };
 
 export const createReservations = async (req: Request, res: Response): Promise<void> => {
-  const { number, showingId, userId, seatId } = req.body;
-  const reservation = await Reservation.create({ number, showingId, userId, seatId });
-  res.status(201).json(reservation);
+  const { showingId, userId, seatIds } = req.body;
+  try {
+    await createReservation(showingId, userId, seatIds);
+    res.status(201).json({ message: 'Reservation created' });
+  } catch (error) {
+    res.status(409).json({ message: 'Seat already taken' });
+  }
 };
 
 
