@@ -4,6 +4,7 @@ import { ref, computed } from 'vue'
 interface Movie {
   id: number
   title: string
+  slug: string
 }
 
 interface Showtime {
@@ -17,18 +18,26 @@ interface Showtime {
 
 /* MOCK MOVIES */
 const movies: Movie[] = [
-  { id: 1, title: 'Dune: Part Two' },
-  { id: 2, title: 'Oppenheimer' },
-  { id: 3, title: 'Interstellar' }
+  { id: 1, title: 'Dune: Part Two', slug: 'dune-part-two' },
+  { id: 2, title: 'Oppenheimer', slug: 'oppenheimer' },
+  { id: 3, title: 'Interstellar', slug: 'interstellar' },
+  { id: 4, title: 'The Batman', slug: 'the-batman' }
 ]
 
 /* MOCK SHOWTIMES */
 const showtimes: Showtime[] = [
-  { id: 1, movieId: 1, date: '2026-04-18', time: '18:00', seats: 45, price: 25 },
-  { id: 2, movieId: 1, date: '2026-04-18', time: '21:00', seats: 20, price: 28 },
-  { id: 3, movieId: 2, date: '2026-04-19', time: '17:30', seats: 60, price: 24 },
-  { id: 4, movieId: 3, date: '2026-04-19', time: '20:00', seats: 15, price: 26 },
-  { id: 5, movieId: 1, date: '2026-04-20', time: '19:00', seats: 50, price: 25 }
+  { id: 1, movieId: 1, date: '2026-06-20', time: '18:00', seats: 45, price: 25 },
+  { id: 2, movieId: 1, date: '2026-06-21', time: '21:00', seats: 20, price: 28 },
+  { id: 3, movieId: 2, date: '2026-06-20', time: '17:30', seats: 60, price: 24 },
+  { id: 4, movieId: 3, date: '2026-06-22', time: '20:00', seats: 15, price: 26 },
+  { id: 5, movieId: 3, date: '2026-06-20', time: '19:00', seats: 50, price: 25 },
+  { id: 6, movieId: 2, date: '2026-06-21', time: '19:00', seats: 50, price: 25 },
+  { id: 7, movieId: 3, date: '2026-06-20', time: '16:00', seats: 50, price: 25 },
+  { id: 8, movieId: 4, date: '2026-06-21', time: '22:00', seats: 50, price: 25 },
+  { id: 9, movieId: 4, date: '2026-06-20', time: '18:00', seats: 50, price: 25 },
+  { id: 10, movieId: 4, date: '2026-06-22', time: '17:00', seats: 50, price: 25 },
+  { id: 11, movieId: 2, date: '2026-06-20', time: '13:00', seats: 50, price: 25 },
+  { id: 12, movieId: 1, date: '2026-06-21', time: '16:00', seats: 50, price: 25 }
 ]
 
 /* GENERATE NEXT 7 DAYS */
@@ -138,9 +147,12 @@ const getMovie = (id: number) =>
           class="bg-white/5 border border-white/10 rounded-xl p-6"
         >
           <!-- Movie title -->
-          <h3 class="text-xl font-semibold mb-4 text-cinema-gold">
+          <RouterLink
+            :to="`/movies/${getMovie(Number(movieId))?.slug}`"
+            class="text-xl font-semibold mb-4 text-cinema-gold hover:underline block"
+          >
             {{ getMovie(Number(movieId))?.title }}
-          </h3>
+          </RouterLink>
 
           <!-- Times -->
           <div class="flex flex-wrap gap-4">

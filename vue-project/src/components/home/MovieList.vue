@@ -2,6 +2,7 @@
 interface Movie {
   id: number
   title: string
+  slug: string
   description: string
   date: string
   premiereDate: string
@@ -15,6 +16,7 @@ const movies: Movie[] = [
   {
     id: 1,
     title: 'Dune: Part Two',
+    slug: 'dune-part-two',
     description: 'Epic continuation of Paul Atreides journey on Arrakis.',
     date: '2026-04-18',
     premiereDate: '2024-03-01',
@@ -26,6 +28,7 @@ const movies: Movie[] = [
   {
     id: 2,
     title: 'Oppenheimer',
+    slug: 'oppenheimer',
     description: 'The story of the man behind the atomic bomb.',
     date: '2026-04-18',
     premiereDate: '2023-07-21',
@@ -37,6 +40,7 @@ const movies: Movie[] = [
   {
     id: 3,
     title: 'Interstellar',
+    slug: 'interstellar',
     description: 'A journey beyond the stars to save humanity.',
     date: '2026-04-18',
     premiereDate: '2014-11-07',
@@ -48,6 +52,7 @@ const movies: Movie[] = [
   {
     id: 4,
     title: 'The Batman',
+    slug: 'the-batman',
     description: 'Dark and gritty take on Gotham’s vigilante.',
     date: '2026-04-18',
     premiereDate: '2022-03-04',
@@ -113,9 +118,12 @@ const movies: Movie[] = [
             </div>
 
             <!-- Button -->
-            <button class="mt-4 bg-cinema-red hover:bg-red-700 text-white py-2 rounded text-sm transition">
+            <RouterLink
+              :to="`/movies/${movie.slug}`"
+              class="mt-4 bg-cinema-red hover:bg-red-700 text-white py-2 rounded text-sm transition text-center block"
+            >
               View Details
-            </button>
+            </RouterLink>
           </div>
         </div>
       </div>

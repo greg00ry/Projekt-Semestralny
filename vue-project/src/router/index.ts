@@ -14,7 +14,7 @@ const router = createRouter({
       component: HomeView,
     },
      {
-      path: '/movie',
+      path: '/movies/:slug',
       name: 'movie',
       component: MovieView,
     },
@@ -24,7 +24,7 @@ const router = createRouter({
       component: SeansView,
     },
      {
-      path: '/reservation',
+      path: '/reservation/:slug',
       name: 'reservation',
       component: ReservationView,
     },
